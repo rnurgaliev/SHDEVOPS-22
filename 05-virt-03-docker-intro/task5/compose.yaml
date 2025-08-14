@@ -1,0 +1,11 @@
+version: "3"
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+#на хостовой машине занят порт 9443 (актуальный для portainer на сегодня), поэтому убрал директиву типа сети и явну смапил порт на 9000
+    - "9000:9443"
+include:
+  - docker-compose.yaml
