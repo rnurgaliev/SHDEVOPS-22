@@ -7,9 +7,9 @@
 https://github.com/rnurgaliev/shvirtd-example-python
 
 ## Задача 2 (*)
-![Задача 0](./image2.png)
-(./image3.png)
-(./image4.png)
+![img1](./image2.png)
+![img2](./image3.png)
+![img3](./image4.png)
 
 ## Задача 3
 1. Изучите файл "proxy.yaml"
