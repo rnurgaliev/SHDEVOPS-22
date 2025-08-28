@@ -17,31 +17,24 @@ https://github.com/rnurgaliev/shvirtd-example-python
 ![img3](./image7.png)
 
 ## Задача 4
-1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
-2. Подключитесь к Вм по ssh и установите docker.
-3. Напишите bash-скрипт, который скачает ваш fork-репозиторий в каталог /opt и запустит проект целиком.
-4. Зайдите на сайт проверки http подключений, например(или аналогичный): ```https://check-host.net/check-http``` и запустите проверку вашего сервиса ```http://<внешний_IP-адрес_вашей_ВМ>:8090```. Таким образом трафик будет направлен в ingress-proxy. Трафик должен пройти через цепочки: Пользователь → Internet → Nginx → HAProxy → FastAPI(запись в БД) → HAProxy → Nginx → Internet → Пользователь
-5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
-6. Повторите SQL-запрос на сервере и приложите скриншот и ссылку на fork.
+bash-скрипт - https://github.com/rnurgaliev/shvirtd-example-python/blob/main/task4.sh
+![img1](./image8.png)
+![remote ssh context](./image10.png)
+![SQL-запрос на сервере](./image9.png)
+https://github.com/rnurgaliev/shvirtd-example-python
 
 ## Задача 5 (*)
-1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
-2. Протестируйте ручной запуск
-3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
-4. Предоставьте скрипт, cron-task и скриншот с несколькими резервными копиями в "/opt/backup"
+Не удалось выполнить бекап с помощью schnitzler/mysqldump:latest - отсутсвует плагин, добивать не стал, не укладываюсь в дедлайн
+
+mysqldump: Got error: 1045: "Plugin caching_sha2_password could not be loaded: Error loading shared library /usr/lib/mariadb/plugin/caching_sha2_password.so: No such file or directory" when trying to connect
+
 
 ## Задача 6
-Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
-Предоставьте скриншоты  действий .
+![img1](./image11.png)
+![img2](./image12.png)
+![img3](./image13.png)
 
 ## Задача 6.1
-Добейтесь аналогичного результата, используя docker cp.  
-Предоставьте скриншоты  действий .
+![img1](./image14.png)
 
-## Задача 6.2 (**)
-Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
-Предоставьте скриншоты  действий .
 
-## Задача 7 (***)
-Запустите ваше python-приложение с помощью runC, не используя docker или containerd.  
-Предоставьте скриншоты  действий .
